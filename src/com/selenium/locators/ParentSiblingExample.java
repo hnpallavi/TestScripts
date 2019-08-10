@@ -8,7 +8,8 @@ public class ParentSiblingExample {
 
 	public static void main(String[] args) {
 		String pkg_path = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver", pkg_path+"\\jars\\chromedriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", pkg_path
+				+ "\\jars\\chromedriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.qaclickacademy.com/interview.php");
 		driver.manage().window().maximize();
@@ -30,6 +31,9 @@ public class ParentSiblingExample {
 		driver.findElement(
 				By.xpath("//section[@id='content']/div/div/div/div/ul/li[3]"))
 				.click();
+		// Finding xpath by text()
+
+		driver.findElement(By.xpath("//*[text()=' Soap UI ']")).click();
 
 		// Traversing from child to parent
 
