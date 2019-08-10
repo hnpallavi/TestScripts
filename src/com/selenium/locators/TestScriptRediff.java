@@ -7,7 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class TestScriptRediff {
 public static void main(String[] args) {
 	
-	System.setProperty("webdriver.chrome.driver", "C:\\vivek\\Selenium\\jars\\chromedriver\\chromedriver.exe");
+	String pkg_path = System.getProperty("user.dir");
+	System.setProperty("webdriver.chrome.driver", pkg_path+"\\jars\\chromedriver\\chromedriver.exe");
 	WebDriver driver = new ChromeDriver();
 	driver.manage().window().maximize();
 	driver.get("https://rediff.com");
@@ -15,6 +16,6 @@ public static void main(String[] args) {
 	driver.findElement(By.xpath("//*[@id='login1']")).sendKeys("hello123");
 	driver.findElement(By.cssSelector("#password")).sendKeys("pasww123");
 	driver.findElement(By.xpath("//input[contains(@name,'procee')]")).click();
-	
+	driver.quit();
 }
 }

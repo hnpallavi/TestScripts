@@ -7,7 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DemoOfLocators {
 
 	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver", "C:\\vivek\\Selenium\\jars\\chromedriver\\chromedriver.exe");
+		
+		String pkg_path = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", pkg_path+"\\jars\\chromedriver\\chromedriver.exe");
 		WebDriver dri = new ChromeDriver();
 		dri.get("http://facebook.com");
 		
