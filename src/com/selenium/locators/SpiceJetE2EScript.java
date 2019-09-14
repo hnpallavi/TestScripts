@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class DropDownScript {
+public class SpiceJetE2EScript {
 
 	public static void main(String[] args) throws InterruptedException {
 		String pkg_path = System.getProperty("user.dir");
@@ -14,6 +14,7 @@ public class DropDownScript {
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://spicejet.com");
 		driver.manage().window().maximize();
+		
 		// Static drop-down handling using Select class
 		Select s = new Select(driver.findElement(By
 				.id("ctl00_mainContent_DropDownListCurrency")));
@@ -45,6 +46,32 @@ public class DropDownScript {
 		driver.findElement(
 				By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']"))
 				.click();// parent-child relationship
+
+		// Selecting current date
+		driver.findElement(
+				By.cssSelector("a.ui-state-default.ui-state-highlight.ui-state-active"))
+				.click();
+
+		// Check Box selection
+		
+		if(driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily")).isSelected()){
+			System.out.println("Check box Family and Friends already selected");
+		}
+		else{
+
+		driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily"))
+				.click();
+		if(driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily")).isSelected()){
+			System.out.println("Check box Family and Friends selected");
+		}
+		}
+		System.out.println("Number of Check box here is : "
+				+ driver.findElements(By.xpath("//input[@type='checkbox']"))
+						.size());
+		
+		//To hit search
+		
+		driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
 
 		driver.quit();
 	}
