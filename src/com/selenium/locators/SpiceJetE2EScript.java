@@ -69,6 +69,16 @@ public class SpiceJetE2EScript {
 				+ driver.findElements(By.xpath("//input[@type='checkbox']"))
 						.size());
 		
+		//To check element is enabled or not
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_0")).click();  //clicking one-way radio button
+		
+		if(driver.findElement(By.className("picker-second")).getAttribute("style").contains("1")){
+			System.out.println("Element is enabled");
+		}
+		else{
+			System.out.println("Element ia disabled");
+		}
+		
 		//To hit search
 		
 		driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
