@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class SpiceJetE2EScript {
 
@@ -63,6 +64,7 @@ public class SpiceJetE2EScript {
 				.click();
 		if(driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily")).isSelected()){
 			System.out.println("Check box Family and Friends selected");
+			
 		}
 		}
 		System.out.println("Number of Check box here is : "
@@ -73,10 +75,12 @@ public class SpiceJetE2EScript {
 		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_0")).click();  //clicking one-way radio button
 		
 		if(driver.findElement(By.className("picker-second")).getAttribute("style").contains("1")){
-			System.out.println("Element is enabled");
+			System.out.println("Round-trip is enabled");
+			Assert.assertFalse(true);
 		}
 		else{
-			System.out.println("Element ia disabled");
+			System.out.println("Round-trip is disabled");
+			Assert.assertTrue(true);
 		}
 		
 		//To hit search
