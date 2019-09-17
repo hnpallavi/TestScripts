@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CheckBoxAssesment {
+public class Assesment1OnCheckBox {
 
 	public static void main(String[] args) {
 		String usr_dir = System.getProperty("user.dir");
