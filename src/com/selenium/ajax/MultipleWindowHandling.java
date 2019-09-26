@@ -17,15 +17,16 @@ public class MultipleWindowHandling {
 		driver.manage().window().maximize();
 		// It will open separate tab/window but does not switch to child
 		// window/tab
+		
 		driver.get("https://accounts.google.com/signin/v2/identifier?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fpc%3Dtopnav-about-n-en&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
 		driver.findElement(By.xpath("//*[text()='Help']")).click();
 		System.out.print("Before switching : ");
 		System.out.println(driver.getTitle());
-		Set<String> id = driver.getWindowHandles();
-		Iterator<String> temp = id.iterator();
-		String parentId = temp.next();
-		String childId = temp.next();
-		driver.switchTo().window(childId);
+		Set<String> id = driver.getWindowHandles();   //returns ids of all opened windows
+		Iterator<String> temp = id.iterator();			//to iterate
+		String parentId = temp.next();					//first id will be parent window's
+		String childId = temp.next();					//first child windows id
+		driver.switchTo().window(childId);  			//switch to particular window with respective id
 		System.out.print("After switching to child window: ");
 		System.out.println(driver.getTitle());
 		driver.switchTo().window(parentId);

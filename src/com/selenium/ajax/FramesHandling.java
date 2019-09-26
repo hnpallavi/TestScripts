@@ -17,9 +17,11 @@ public class FramesHandling {
 		driver.get("https://jqueryui.com/droppable/");
 
 		// switch to frame and then search for web element
-		driver.switchTo()
+		System.out.println(driver.findElements(By.tagName("iframe")).size());  //gives number of frames
+		driver.switchTo().frame(0);  //using index but not recommended , better use WebElement
+		/*driver.switchTo()
 				.frame(driver.findElement(By
-						.cssSelector("iframe[class='demo-frame']")));
+						.cssSelector("iframe[class='demo-frame']")));*/
 		WebElement src = driver.findElement(By.id("draggable"));
 		WebElement dest = driver.findElement(By.id("droppable"));
 		Actions a = new Actions(driver);
