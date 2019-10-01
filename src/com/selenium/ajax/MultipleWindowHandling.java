@@ -23,9 +23,9 @@ public class MultipleWindowHandling {
 		System.out.print("Before switching : ");
 		System.out.println(driver.getTitle());
 		Set<String> id = driver.getWindowHandles();   //returns ids of all opened windows
-		Iterator<String> temp = id.iterator();			//to iterate
-		String parentId = temp.next();					//first id will be parent window's
-		String childId = temp.next();					//first child windows id
+		Iterator<String> temp = id.iterator();			//stores base index
+		String parentId = temp.next();					//moves to 0th index - first id will be parent window's
+		String childId = temp.next();					//traverse to first child windows id
 		driver.switchTo().window(childId);  			//switch to particular window with respective id
 		System.out.print("After switching to child window: ");
 		System.out.println(driver.getTitle());
