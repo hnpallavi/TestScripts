@@ -42,6 +42,20 @@ public class JavaScriptExecutor {
 		else{
 			System.out.println(input+" Element found");
 		}		
+		
+		/*
+		 * Handling SSL certificates
+		DesiredCapabilities profileObj = DesiredCapabilities.firefox(); // defining generic profile
+		obj.acceptInsecureCerts();									   // sets object to accept insecure sites and proceed
+		//ChromeOptions local = new ChromeOptions();
+		FirefoxOptions local = new FirefoxOptions();   //object for applying created profile on local browser
+		local.merge(profileObj);  //merging 
+		system.setProperties();
+		WebDriver driver = new FirefoxDriver(local);
+		driver.get();
+		*/
+		
+		
 		driver.quit();
 	}
 
